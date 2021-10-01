@@ -1,0 +1,40 @@
+Oracle:
+  API endpoint:
+    object shape with leaf node patterns
+
+
+Pattern:
+  Types:
+    FloatRange:    From a set of many, get a distribution and pick values from distribution.
+    IntRange:      Same as floatrange but int
+    StringPattern: Find common string portions, pattern match differences
+      Substring patterns: <Pattern>
+    UUID: random
+    RandomString: <charset, len>
+    StaticString: string
+    StaticNull: null
+    VariableLenArray<Pattern>
+    DateRange: From a set of many
+    FutureDateRange: 
+    RequestRelatedDateRange: <Related to a particular request parameter?>
+    BoolRange: Probability
+
+
+Request pattern
+
+on request:
+  look up in oracle 
+  if not has enough data:
+    proxy request with "MAYBE BOT" header
+    add request response into pattern oracle
+    return response
+  
+  generate response from oracle
+  send response
+
+
+
+send traffic from nginx based on some rules to liebot
+  transparently start thwarting bots
+
+start saving aspects of a request into SVM to automatically classify? some statistical model?
